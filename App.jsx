@@ -1,12 +1,38 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./styles.css"
 import { NewTodoForm } from "./NewTodoForm"
 import { TodoList } from "./TodoList"
 
 export default function App() {
+  /*
+   * New todo list item that can be added to the list.
+   * useState() is called whenever the webpage is refreshed
+   * or reopened to retrieve data from local storage.
+   */
+  const [todos, setTodos] = useState(()=> {
+    const localValue = localStorage.getItem("ITEMS")
+    if (localValue == null) {
+      /* Value doesn't exist yet, return empty array */
+      return []
+    }
+    else {
+      /* Otherwise, parse and return value inside local storage */
+      return JSON.parse(localValue)
+    }
+  })
 
-  /* New todo list item that can be added to the list */
-  const [todos, setTodos] = useState([])
+  /*
+   * The useEffect hook takes the localStorage.setItem() 
+   * function as an argument, then runs this function
+   * each time the items in the todos array change. This
+   * function takes the todos and stores them in local
+   * storage. This means the data in the todolist is 
+   * permanently stored even when the device is restarted
+   * and the browser is refreshed.
+   */
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
+  }, [todos])
 
   function addTodo(title) {
     /* 
