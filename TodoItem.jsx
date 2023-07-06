@@ -3,8 +3,8 @@ export function TodoItem({ completed, id, title, toggleTodo,
 deleteTodo }) {
     return (
         <li>
-        <label>
-          <input 
+        <label class="checkbox">
+          <input
           type="checkbox" 
           checked={completed}
           /* 
@@ -13,7 +13,8 @@ deleteTodo }) {
            */
           onChange ={e => toggleTodo(id, e.target.checked)}
           />
-          {title}
+          <span></span>
+          <div class="text-after">{title}</div>
         </label>
         {/*
           * Represents button to delete a todo list item.

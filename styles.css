@@ -75,10 +75,6 @@
     list-style: none;
   }
   
-  .list li:has(input:checked) label {
-    color: hsl(200, 20%, 40%);
-  }
-  
   .list {
     display: flex;
     flex-direction: column;
@@ -111,30 +107,35 @@
     position: absolute;
   }
   
-  .list li label::before {
-    content: "";
-    display: block;
+  label.checkbox input[type="checkbox"] {display:none;}
+  label.checkbox span {
     width: 0.9rem;
     height: 0.9rem;
-    background: hsl(200, 100%, 90%);
     border-radius: 0.25em;
+    background: hsl(200, 100%, 90%);
+  }
+  
+  label.checkbox :hover + span {
+    background: hsl(200, 100%, 80%);
+  }
+  
+  label.checkbox :checked + span {
+    background: hsl(200, 100%, 40%);
+  }
+
+  label.checkbox :checked + span:before {
+    content: '\2714';
+    font-size: 0.75rem;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
-  .list li label:hover::before {
-    background: hsl(200, 100%, 80%);
-  }
-  
-  .list li:has(input:checked) label::before {
-    content: "✔";
-    background: hsl(200, 100%, 40%);
-    color: hsl(200, 100%, 90%);
-    font-size: 0.75rem;
-    font-weight: bold;
-  }
-  
-  .list li:has(input:checked) label:hover::before {
-    background: hsl(200, 100%, 30%);
+
+  /*
+   * Change color of text next to checkbox 
+   * when checkbox is checked
+   */
+  label.checkbox :checked ~ .text-after {
+    color: hsl(200, 20%, 40%);
   }
