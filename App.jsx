@@ -93,9 +93,16 @@ export default function App() {
       return currentTodos.map(todo => {
         /* If it is the item to be edited */
         if (todo.id == id) {
-          let editedTodo = prompt(`Update "${todo.title}"?`, todo.title)
-          todo.title = editedTodo;
+          /* Prompt the user to edit the item */
+          let editedTodo = prompt(`Update "${todo.title}"?`, todo.title)  
+
+          /* If the original todo has been changed */
+          if (todo.title != editedTodo) {
+            /* Set the original todo to the edited todo */
+            todo.title = editedTodo;
+          }
         }
+        
         return todo
       })
     })
