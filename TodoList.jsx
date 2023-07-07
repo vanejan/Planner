@@ -1,6 +1,6 @@
 import { TodoItem } from "./TodoItem"
 
-export function TodoList({ todos, toggleTodo, deleteTodo }) {
+export function TodoList({ todos, toggleTodo, deleteTodo, updateTodo }) {
     return(
         <ul className="list">
         {/*
@@ -23,6 +23,7 @@ export function TodoList({ todos, toggleTodo, deleteTodo }) {
                 key={todo.id}
                 toggleTodo={toggleTodo}
                 deleteTodo={deleteTodo}
+                updateTodo={updateTodo}
             />
           )
         })}

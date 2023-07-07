@@ -1,6 +1,6 @@
 /* Pass in completed, id, and title properties */
 export function TodoItem({ completed, id, title, toggleTodo,
-deleteTodo }) {
+deleteTodo, updateTodo }) {
     return (
         <li>
         <label class="checkbox">
@@ -16,6 +16,18 @@ deleteTodo }) {
           <span></span>
           <div class="text-after">{title}</div>
         </label>
+
+        {/*
+          * Represents button to edit a todo list item.
+          * When clicked, a function is passed in that calls
+          * updateTodo() with the id of the corresponding item. 
+          */}
+        <button 
+          onClick={() => updateTodo(id)}
+          className="btn btn-edit">
+          Edit
+        </button>
+
         {/*
           * Represents button to delete a todo list item.
           * When clicked, a function is passed in that calls
@@ -23,7 +35,10 @@ deleteTodo }) {
           */}
         <button 
           onClick={() => deleteTodo(id)}
-          className="btn btn-danger">Delete</button>
+          className="btn btn-danger">
+          Delete
+        </button>
+
         </li>
     )
 }

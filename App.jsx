@@ -71,8 +71,31 @@ export default function App() {
         if (todo.id == id) {
           return { ...todo, completed }
         }
+        else {
+          // For each item with an id that doesn't match, keep it as is
+          return todo
+        }
+      })
+    })
+  }
 
-        // For each item with an id that doesn't match, keep it as is
+  /*
+   * This function allows the user to edit the todo after it
+   * has already been added to the list.
+   */
+  function updateTodo(id) {
+    setTodos(currentTodos => {
+      /* 
+       * Traverse the currentTodos array, and for each item in
+       * the array, determine if it is the one that is to
+       * be updated
+       */
+      return currentTodos.map(todo => {
+        /* If it is the item to be edited */
+        if (todo.id == id) {
+          let editedTodo = prompt(`Update "${todo.title}"?`, todo.title)
+          todo.title = editedTodo;
+        }
         return todo
       })
     })
@@ -99,7 +122,7 @@ export default function App() {
       <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
       {/* Render TodoList */}
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
   )
 }
