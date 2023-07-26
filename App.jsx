@@ -107,7 +107,7 @@ export default function App() {
           todoEditPrompted = true
 
           /* If the original todo has been changed and is not blank */
-          if (editedTodo != "") {
+          if ((editedTodo != "") && (editedTodo != null)) {
             /* Set the original todo to the edited todo */
             todo.title = editedTodo;
           }
