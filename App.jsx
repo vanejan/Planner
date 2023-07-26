@@ -106,8 +106,8 @@ export default function App() {
           let editedTodo = prompt(`Edit "${todo.title}"?`, todo.title) 
           todoEditPrompted = true
 
-          /* If the original todo has been changed */
-          if (editedTodo != null) {
+          /* If the original todo has been changed and is not blank */
+          if (editedTodo != "") {
             /* Set the original todo to the edited todo */
             todo.title = editedTodo;
           }
