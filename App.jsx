@@ -84,6 +84,12 @@ export default function App() {
    * has already been added to the list.
    */
   function updateTodo(id) {
+    /*
+     * Use a boolean to keep track of whether the user
+     * has already been prompted to edit the item
+     */
+    let todoEditPrompted = false
+
     setTodos(currentTodos => {
       /* 
        * Traverse the currentTodos array, and for each item in
@@ -91,18 +97,21 @@ export default function App() {
        * be updated
        */
       return currentTodos.map(todo => {
-        /* If it is the item to be edited */
-        if (todo.id == id) {
+        /*
+         * If it is the item to be edited and the
+         * prompt has not appeared yet 
+         */
+        if ((todo.id == id) && (!todoEditPrompted)) {
           /* Prompt the user to edit the item */
-          let editedTodo = prompt(`Update "${todo.title}"?`, todo.title)  
+          let editedTodo = prompt(`Edit "${todo.title}"?`, todo.title) 
+          todoEditPrompted = true
 
           /* If the original todo has been changed */
-          if (todo.title != editedTodo) {
+          if (editedTodo != null) {
             /* Set the original todo to the edited todo */
             todo.title = editedTodo;
           }
         }
-        
         return todo
       })
     })
