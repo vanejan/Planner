@@ -1,4 +1,6 @@
-# Todo-List-App
-Open up the terminal. Change directory to the project folder. <br />
-Inside the project folder, run: npm i <br />
-Next, run: npm run dev
+# Todo List App
+Open up the terminal. <br />
+Within the terminal, go to the project folder directory. <br />
+Inside the project folder, run the following commands: <br />
+npm i <br />
+npm run dev
