@@ -40,8 +40,10 @@ body {
 }
 
 .btn.btn-danger {
-  border: 1px solid hsl(0, 100%, 40%);
-  color: hsl(0, 100%, 40%);
+  /*border: 1px solid hsl(0, 100%, 40%);*/
+  border: 1px solid rgb(0,0,0);
+  /*color: hsl(0, 100%, 40%);*/
+  color: rgb(0,0,0);
 }
 
 .btn.btn-danger:hover,
@@ -56,7 +58,7 @@ body {
 
 .btn.btn-edit:hover,
 .btn.btn-edit:focus-visible {
-  background: hsla(120, 100%, 40%, 0.2);
+  background: hsl(120, 100%, 40%, 0.2);
 }
 
 .new-item-form input {
@@ -130,7 +132,7 @@ label.checkbox :hover + span {
 }
 
 label.checkbox :checked + span {
-  background: hsl(200, 100%, 40%);
+  background: hsl(200, 100%, 30%);
 }
 
 label.checkbox :checked + span:before {
@@ -148,5 +150,5 @@ label.checkbox :checked + span:before {
  * the .text-after div after the checkbox
  */
 label.checkbox :checked ~ .text-after {
-  color: hsl(200, 20%, 40%);
+  color: hsl(360, 100%, 100%, 0.35);
 }

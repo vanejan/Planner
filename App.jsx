@@ -136,7 +136,7 @@ export default function App() {
         * down data from addTodo.
         */}
       <NewTodoForm onSubmit={addTodo} />
-      <h1 className="header">Todo List</h1>
+      <h1 className="header">To Do List</h1>
       {/* Render TodoList */}
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>
