@@ -1,5 +1,4 @@
 * {
-  font-family: 'Roboto Condensed', sans-serif;
   font-family: 'Roboto Slab', serif;
   box-sizing: border-box;
 }
@@ -24,12 +23,14 @@ body {
   gap: 0.1rem;
 }
 
+/* Styling for buttons of the class btn */
 .btn {
   background: hsl(229, 100%, 50%, 0.4);
   border: 1px solid rgb(255,255,255);
   color: rgb(255,255,255);
   padding: 0.25em 0.5em;
   border-radius: 0.25em;
+  /* Change the cursor to a hand pointer on hover */
   cursor: pointer;
   outline: none;
 }
@@ -39,26 +40,31 @@ body {
   background: hsl(229, 100%, 50%, 0.6);
 }
 
+/* Styling delete button */
 .btn.btn-danger {
   border: 1px solid rgb(0,0,0);
   color: rgb(0,0,0);
 }
 
+/* Delete button styling when hover or point */
 .btn.btn-danger:hover,
 .btn.btn-danger:focus-visible {
   background: hsl(0, 100%, 40%, 0.2);
 }
 
+/* Styling edit button */
 .btn.btn-edit {
   border: 1px solid rgb(0,250,154);
   color: rgb(0,250,154);
 }
 
+/* Edit button styling when hover or point */
 .btn.btn-edit:hover,
 .btn.btn-edit:focus-visible {
   background: hsl(120, 100%, 40%, 0.2);
 }
 
+/* Styling input box for adding a new item */
 .new-item-form input {
   outline: none;
   border: 1px solid hsl(200, 100%, 40%);
@@ -68,15 +74,19 @@ body {
   color: hsl(200, 100%, 90%);
 }
 
+/* Styling when click/select the input box */
 .new-item-form input:focus {
   border: 1px solid hsl(200, 100%, 70%);
 }
 
+/* To Do List Title Styling */
 .header {
   font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* Styling for the actual to do list */
 
 .list {
   margin: 0;
@@ -91,6 +101,7 @@ body {
   gap: 0.3rem;
 }
 
+/* Style for each list item */
 .list li {
   display: flex;
   gap: 0.5rem;
@@ -117,6 +128,8 @@ body {
   position: absolute;
 }
 
+/* Checkbox styling */
+
 label.checkbox input[type="checkbox"] {display:none;}
 label.checkbox span {
   width: 0.9rem;
@@ -125,15 +138,22 @@ label.checkbox span {
   background: hsl(200, 100%, 90%);
 }
 
+/* Checkbox styling when hover over the item */
 label.checkbox :hover + span {
   background: hsl(200, 100%, 80%);
 }
 
+/* Checkbox background when checked */
 label.checkbox :checked + span {
   background: hsl(200, 100%, 30%);
 }
 
+/*
+ * Styling of checkmark element on top of 
+ * the checkbox when it is checked
+ */
 label.checkbox :checked + span:before {
+  /* content is set to the checkmark symbol */
   content: '\2714';
   font-size: 0.75rem;
   font-weight: bold;
