@@ -1,4 +1,4 @@
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "../TodoItem/TodoItem"
 
 export function TodoList({ todos, toggleTodo, deleteTodo, updateTodo }) {
     return(
