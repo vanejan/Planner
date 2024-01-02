@@ -6,4 +6,4 @@ Inside the project folder, run the following commands: <br />
 npm i 
 npm run dev
 ```
-To open up the app, click on the localhost link.
+To open up the website, click on the localhost link.
