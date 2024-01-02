@@ -1,4 +1,4 @@
-# Todo List App
+# Todo List Website
 Open up the terminal. <br />
 Within the terminal, go to the project folder directory. <br />
 Inside the project folder, run the following commands: <br />
