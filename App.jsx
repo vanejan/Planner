@@ -10,12 +10,15 @@ import '@fontsource/roboto/700.css';
 
 
 import TodoPage from "./pages/TodoPage/TodoPage"
+import Home from "./pages/Home/Home"
+
 
 export default function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<TodoPage />} />
+        <Route exact path="/TodoPage" element={<TodoPage />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
     </div>
   )
