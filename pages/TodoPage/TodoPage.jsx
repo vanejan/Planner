@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react"
-import { NewTodoForm } from "../NewTodoForm/NewTodoForm"
-import { TodoList } from "../TodoList/TodoList"
+import { useEffect, useState } from "react";
+import { NewTodoForm } from "../NewTodoForm/NewTodoForm";
+import { TodoList } from "../TodoList/TodoList";
+import {useNavigate} from "react-router-dom";
+import s from "./TodoPage.module.css";
 
 export default function TodoPage() {
-    /*
+  // Get array of strings split by / from the page URL
+  const pageLinkArray = window.location.pathname.split("/");
+  const navigate = useNavigate();
+
+  /*
    * New todo list item that can be added to the list.
    * useState() is called whenever the webpage is refreshed
    * or reopened to retrieve data from local storage.
@@ -127,15 +133,29 @@ export default function TodoPage() {
     })
   }
 
+  const handleClickCalendar = () => {
+    navigate("../");
+  }
+
   return (
     <>
+      <button className={s.calendarButton} onClick={handleClickCalendar}>
+        Calendar View
+      </button>
       {/*
         * Render the NewTodoForm component in the app page
         * onSubmit is a property on the NewTodoForm that is passed
         * down data from addTodo.
         */}
       <NewTodoForm onSubmit={addTodo} />
-      <h1 className="header">To Do List</h1>
+      {/* 
+        * Get the date from pageLinkArray variable, then
+        * display the title:
+        * "Month Day, Year To Do List"
+        */}
+      <h1 className="header">
+        {pageLinkArray[2]} {pageLinkArray[3]}, {pageLinkArray[4]} To Do List
+      </h1>
       {/* Render TodoList */}
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
     </>

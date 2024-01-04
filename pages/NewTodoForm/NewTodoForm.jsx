@@ -28,7 +28,7 @@ export function NewTodoForm({ onSubmit }) {
         /* onSubmit event listener*/
         <form onSubmit={handleSubmit} className="new-item-form">
         <div className="form-row">
-        <label htmlFor="item">New Item</label>
+        <div className="new-item-text">New Item</div>
         {/*
           * The value of the input is set to the new item
           * so the input of the item can be updated

@@ -170,3 +170,7 @@ label.checkbox :checked + span:before {
 label.checkbox :checked ~ .text-after {
   color: hsl(360, 100%, 100%, 0.35);
 }
+
+.new-item-text {
+  text-align: center;
+}
