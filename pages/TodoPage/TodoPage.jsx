@@ -5,7 +5,12 @@ import {useNavigate} from "react-router-dom";
 import s from "./TodoPage.module.css";
 
 export default function TodoPage() {
-  // Get array of strings split by / from the page URL
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  
+  /*
+   * Get array of strings split by / from the page URL.
+   * pageLinkArray is of the form: ["", "TodoPage", Month, Day, Year].
+   */
   const pageLinkArray = window.location.pathname.split("/");
   const navigate = useNavigate();
 
@@ -27,6 +32,27 @@ export default function TodoPage() {
   })
 
   /*
+   * Filter todos based on the selected date so that out of all
+   * the todo items stored, only todo items
+   * for the current date are shown.
+   */
+  const filteredTodos = todos.filter((todo) => {
+    // todoDate array is an array of the form [Month, Day, Year]
+    const todoDate = todo.date.split(" ");
+    
+    /*
+     * If month, day, and year of the todo item match the month,
+     * day, and year of the current page, display the todo item.
+     */
+    if ((todoDate[0] == pageLinkArray[2]) && 
+        (todoDate[1] == pageLinkArray[3]) && 
+        (todoDate[2] == pageLinkArray[4])) {
+          
+      return todo;
+    }
+  })
+
+  /*
    * The useEffect hook takes the localStorage.setItem() 
    * function as an argument, then runs this function
    * each time the items in the todos array change. This
@@ -43,13 +69,16 @@ export default function TodoPage() {
     /* 
      * The first time setTodos() runs, currentTodos is an
      * empty array and a todo list item is added to the array.
+     * The date property is formatted as: 
+     * Month Day Year.
      * Afterwards, each time setTodos() is called, another item
      * is added.
      */
     setTodos(currentTodos => {
       return [
         ...currentTodos,
-        { id: crypto.randomUUID(), title,
+        { id: crypto.randomUUID(), title, 
+          date: pageLinkArray[2] + " " + pageLinkArray[3] + " " + pageLinkArray[4],
           completed: false },
       ]
     })
@@ -151,13 +180,17 @@ export default function TodoPage() {
       {/* 
         * Get the date from pageLinkArray variable, then
         * display the title:
-        * "Month Day, Year To Do List"
+        * "Month Day, Year To Do List".
         */}
       <h1 className="header">
         {pageLinkArray[2]} {pageLinkArray[3]}, {pageLinkArray[4]} To Do List
       </h1>
       {/* Render TodoList */}
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
+      <TodoList 
+        todos={filteredTodos} 
+        toggleTodo={toggleTodo} 
+        deleteTodo={deleteTodo} 
+        updateTodo={updateTodo} />
     </>
   )
 }

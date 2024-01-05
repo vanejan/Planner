@@ -13,7 +13,6 @@ export default function Home() {
         /*
          * Redirect to a new page for each day with that day's todos. 
          * Page link formatted as: /TodoPage/Month/Day/Year
-         * months[event.getMonth()] gets name of the month at index getMonth()
          */
         navigate(`/TodoPage/${months[event.getMonth()]}/${event.getDate()}/${event.getFullYear()}`);
     }
